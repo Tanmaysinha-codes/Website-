@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduSmart Academy | Courses</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkR4j8R2vRykW5qf2Y0R8+XK5Q5e0siJY7NQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container flex items-center justify-between">
+      <a class="brand" href="index.html"><i class="fa-solid fa-graduation-cap"></i> EduSmart Academy</a>
+      <nav>
+        <ul class="nav-links flex items-center">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="container section-space">
+    <section>
+      <h1>Programs</h1>
+      <p>Explore future-ready programs designed for academic excellence and career impact.</p>
+    </section>
+
+    <section class="filter-bar section-space-sm">
+      <button class="filter-btn" type="button">All</button>
+      <button class="filter-btn" type="button">Science</button>
+      <button class="filter-btn" type="button">Tech</button>
+      <button class="filter-btn" type="button">Arts</button>
+    </section>
+
+    <section class="section-space-sm">
+      <div class="grid grid-3">
+        <article class="card course-card">
+          <i class="fa-solid fa-atom"></i>
+          <h2>Science</h2>
+          <p>Advanced laboratory science with research-led instruction.</p>
+          <button class="btn-primary" type="button">Apply</button>
+        </article>
+        <article class="card course-card">
+          <i class="fa-solid fa-microchip"></i>
+          <h2>Tech</h2>
+          <p>Software, AI, and systems design for modern digital careers.</p>
+          <button class="btn-primary" type="button">Apply</button>
+        </article>
+        <article class="card course-card">
+          <i class="fa-solid fa-palette"></i>
+          <h2>Arts</h2>
+          <p>Creative practice and critical thinking across visual disciplines.</p>
+          <button class="btn-primary" type="button">Apply</button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container flex items-center justify-between">
+      <p>&copy; 2026 EduSmart Academy. All rights reserved.</p>
+      <div class="footer-links flex items-center">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
