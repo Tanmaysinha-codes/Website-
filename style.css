@@ -431,6 +431,18 @@ textarea:focus-visible {
   --border: #25324b;
 }
 
+.dark-mode .form-status.is-success {
+  background: #123120;
+  border-color: #2b7245;
+  color: #d2f4de;
+}
+
+.dark-mode .form-status.is-error {
+  background: #3b151a;
+  border-color: #a94b58;
+  color: #ffd9dd;
+}
+
 @media (max-width: 900px) {
   .grid-4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));

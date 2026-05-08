@@ -73,9 +73,14 @@
   const typingText = document.getElementById("typing-text");
   if (typingText) {
     const words = ["Empowering", "Innovating", "Succeeding"];
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let index = 0;
 
     const cycleWords = () => {
+      if (prefersReducedMotion) {
+        return;
+      }
+
       typingText.classList.add("is-changing");
 
       window.setTimeout(() => {
@@ -87,7 +92,9 @@
       window.setTimeout(cycleWords, 2400);
     };
 
-    window.setTimeout(cycleWords, 1800);
+    if (!prefersReducedMotion) {
+      window.setTimeout(cycleWords, 1800);
+    }
   }
 
   const counters = document.querySelectorAll(".counter[data-target]");
@@ -154,11 +161,25 @@
       const message = messageInput ? messageInput.value.trim() : "";
       const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-      if (!name || !message || !isValidEmail) {
+      if (emailInput) {
+        emailInput.setAttribute("aria-invalid", String(!isValidEmail && Boolean(email)));
+      }
+
+      if (!name) {
+        showFormStatus("Please enter your name.", "error");
+        return;
+      }
+
+      if (!isValidEmail) {
         if (emailInput) {
-          emailInput.setAttribute("aria-invalid", String(!isValidEmail));
+          emailInput.setAttribute("aria-invalid", "true");
         }
-        showFormStatus("Please complete all fields and enter a valid email address.", "error");
+        showFormStatus("Please enter a valid email address.", "error");
+        return;
+      }
+
+      if (!message) {
+        showFormStatus("Please enter your message.", "error");
         return;
       }
 
