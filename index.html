@@ -25,8 +25,7 @@
       try {
         const storedTheme = localStorage.getItem("edusmart-theme");
         const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-        const shouldUseDarkMode =
-          storedTheme === "dark" || ((storedTheme !== "dark" && storedTheme !== "light") && prefersDark);
+        const shouldUseDarkMode = storedTheme === "dark" || (storedTheme !== "light" && prefersDark);
         if (shouldUseDarkMode) {
           document.documentElement.classList.add("dark-mode");
         }
