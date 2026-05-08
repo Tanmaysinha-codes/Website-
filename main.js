@@ -32,8 +32,15 @@
     }
   };
 
-  const savedTheme = localStorage.getItem(THEME_KEY) || "light";
-  applyTheme(savedTheme);
+  const savedTheme = localStorage.getItem(THEME_KEY);
+  const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const initialTheme =
+    savedTheme === "dark" || savedTheme === "light"
+      ? savedTheme
+      : prefersDark
+        ? "dark"
+        : "light";
+  applyTheme(initialTheme);
 
   if (siteNav) {
     const currentPath = window.location.pathname.split("/").pop()?.toLowerCase() || "index.html";

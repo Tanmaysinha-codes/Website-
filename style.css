@@ -6,6 +6,10 @@
   --text: #172033;
   --muted: #5f6b7d;
   --border: #d8e1ef;
+  --hero-bg-start: #e9f1ff;
+  --hero-bg-end: #ffffff;
+  --badge-bg: #e6eefc;
+  --skip-link-text: #ffffff;
   --transition: 0.3s ease;
   --hero-image-ratio: 3 / 2;
   --card-image-ratio: 4 / 3;
@@ -153,7 +157,7 @@ a {
   top: -100%;
   z-index: 1000;
   background: var(--primary);
-  color: #fff;
+  color: var(--skip-link-text);
   padding: 0.7rem 0.9rem;
   border-radius: 8px;
   transition: top var(--transition);
@@ -185,7 +189,7 @@ a {
 }
 
 .hero {
-  background: linear-gradient(180deg, #e9f1ff, #ffffff);
+  background: linear-gradient(180deg, var(--hero-bg-start), var(--hero-bg-end));
   padding: 4rem 0;
 }
 
@@ -331,7 +335,7 @@ a {
   border-radius: 999px;
   font-size: 0.75rem;
   font-weight: 600;
-  background: #e6eefc;
+  background: var(--badge-bg);
   color: var(--primary);
 }
 
@@ -365,7 +369,7 @@ a {
 }
 
 .filter-btn {
-  background-color: #e6eefc;
+  background-color: var(--badge-bg);
   color: var(--primary);
 }
 
@@ -617,6 +621,10 @@ textarea:focus-visible {
   --text: #f0f4fb;
   --muted: #c0ccde;
   --border: #25324b;
+  --hero-bg-start: #101828;
+  --hero-bg-end: #0c111b;
+  --badge-bg: #1e2a44;
+  --skip-link-text: #ffffff;
 }
 
 .dark-mode .form-status.is-success {
