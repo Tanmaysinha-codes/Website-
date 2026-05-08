@@ -234,19 +234,19 @@ a {
 }
 
 .filter-btn {
-  background: #e6eefc;
+  background-color: #e6eefc;
   color: var(--primary);
 }
 
 .btn-primary {
-  background: var(--primary);
+  background-color: var(--primary);
   color: #fff;
 }
 
 .btn-outline {
   border: 1px solid var(--primary);
   color: var(--primary);
-  background: transparent;
+  background-color: transparent;
   border-radius: 8px;
   padding: 0.6rem 1rem;
   font-weight: 600;
@@ -261,11 +261,11 @@ a {
 }
 
 .btn-primary:hover {
-  background: var(--primary-dark);
+  background-color: var(--primary-dark);
 }
 
 .btn-outline:hover {
-  background: var(--primary);
+  background-color: var(--primary);
   color: #fff;
 }
 
