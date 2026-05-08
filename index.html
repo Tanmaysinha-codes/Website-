@@ -23,7 +23,10 @@
   <script>
     (() => {
       try {
-        if (localStorage.getItem("edusmart-theme") === "dark") {
+        const storedTheme = localStorage.getItem("edusmart-theme");
+        const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const shouldUseDarkMode = storedTheme === "dark" || (storedTheme !== "light" && prefersDark);
+        if (shouldUseDarkMode) {
           document.documentElement.classList.add("dark-mode");
         }
       } catch {}
