@@ -4,6 +4,7 @@
   const themeToggle = document.getElementById("theme-toggle");
   const menuToggle = document.getElementById("menu-toggle");
   const siteNav = document.getElementById("site-nav");
+  const rootElement = document.documentElement;
 
   const updateMenuState = (isOpen) => {
     if (!menuToggle || !siteNav) {
@@ -20,6 +21,7 @@
 
   const applyTheme = (theme) => {
     const isDark = theme === "dark";
+    rootElement.classList.toggle("dark-mode", isDark);
     document.body.classList.toggle("dark-mode", isDark);
     if (themeToggle) {
       themeToggle.innerHTML = isDark
@@ -33,9 +35,23 @@
   const savedTheme = localStorage.getItem(THEME_KEY) || "light";
   applyTheme(savedTheme);
 
+  if (siteNav) {
+    const currentPath = window.location.pathname.split("/").pop()?.toLowerCase() || "index.html";
+    siteNav.querySelectorAll('a[href]').forEach((link) => {
+      const linkPath = (link.getAttribute("href") || "").split("?")[0].toLowerCase();
+      const isActive = currentPath === "" ? linkPath === "index.html" : linkPath === currentPath;
+      link.classList.toggle("active", isActive);
+      if (isActive) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
   if (themeToggle) {
     themeToggle.addEventListener("click", () => {
-      const nextTheme = document.body.classList.contains("dark-mode") ? "light" : "dark";
+      const nextTheme = rootElement.classList.contains("dark-mode") ? "light" : "dark";
       applyTheme(nextTheme);
       localStorage.setItem(THEME_KEY, nextTheme);
     });
