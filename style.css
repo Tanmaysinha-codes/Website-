@@ -230,7 +230,7 @@ a {
   padding: 0.6rem 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: transform var(--transition), background var(--transition);
+  transition: transform var(--transition), background-color var(--transition);
 }
 
 .filter-btn {
@@ -251,7 +251,7 @@ a {
   padding: 0.6rem 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: transform var(--transition), background var(--transition), color var(--transition);
+  transition: transform var(--transition), background-color var(--transition), color var(--transition);
 }
 
 .btn-primary:hover,
