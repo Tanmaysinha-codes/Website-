@@ -5,6 +5,17 @@
   const menuToggle = document.getElementById("menu-toggle");
   const siteNav = document.getElementById("site-nav");
   const rootElement = document.documentElement;
+  const sunIcon = `
+    <svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle>
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+  `;
+  const moonIcon = `
+    <svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+  `;
 
   const updateMenuState = (isOpen) => {
     if (!menuToggle || !siteNav) {
@@ -24,9 +35,7 @@
     rootElement.classList.toggle("dark-mode", isDark);
     document.body.classList.toggle("dark-mode", isDark);
     if (themeToggle) {
-      themeToggle.innerHTML = isDark
-        ? '<i class="fa-solid fa-sun" aria-hidden="true"></i>'
-        : '<i class="fa-solid fa-moon" aria-hidden="true"></i>';
+      themeToggle.innerHTML = isDark ? moonIcon : sunIcon;
       themeToggle.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
       themeToggle.setAttribute("aria-pressed", String(isDark));
     }

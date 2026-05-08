@@ -6,6 +6,7 @@
   --text: #172033;
   --muted: #5f6b7d;
   --border: #d8e1ef;
+  --theme-icon-color: #000000;
   --hero-bg-start: #e9f1ff;
   --hero-bg-end: #ffffff;
   --badge-bg: #e6eefc;
@@ -114,6 +115,9 @@ a {
 }
 
 .site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   min-height: 70px;
   position: relative;
   gap: 0.75rem;
@@ -170,11 +174,20 @@ a {
 .theme-toggle {
   border: 1px solid var(--border);
   background: var(--surface);
-  color: var(--primary);
+  color: var(--theme-icon-color);
   border-radius: 8px;
   width: 40px;
   height: 40px;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  display: block;
 }
 
 .menu-toggle {
@@ -566,15 +579,21 @@ a {
 }
 
 .radio-group {
-  display: grid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 0.5rem;
   margin-top: 0.5rem;
+  padding: 0 5px;
+  width: 100%;
 }
 
 .radio-group label {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.35rem;
+  text-align: center;
 }
 
 .form-status {
@@ -621,6 +640,7 @@ textarea:focus-visible {
   --text: #f0f4fb;
   --muted: #c0ccde;
   --border: #25324b;
+  --theme-icon-color: #ffffff;
   --hero-bg-start: #101828;
   --hero-bg-end: #0c111b;
   --badge-bg: #1e2a44;
