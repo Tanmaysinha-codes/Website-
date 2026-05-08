@@ -70,10 +70,10 @@
     });
   }
 
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const typingText = document.getElementById("typing-text");
   if (typingText) {
     const words = ["Empowering", "Innovating", "Succeeding"];
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let index = 0;
 
     const cycleWords = () => {
@@ -139,14 +139,14 @@
   const contactForm = document.getElementById("contact-form");
   const formStatus = document.getElementById("form-status");
 
-  const showFormStatus = (message, type) => {
-    if (!formStatus) {
+  const showFormStatus = (statusElement, message, type) => {
+    if (!statusElement) {
       return;
     }
 
-    formStatus.textContent = message;
-    formStatus.hidden = false;
-    formStatus.className = `form-status is-${type}`;
+    statusElement.textContent = message;
+    statusElement.hidden = false;
+    statusElement.className = `form-status is-${type}`;
   };
 
   if (contactForm) {
@@ -166,7 +166,7 @@
       }
 
       if (!name) {
-        showFormStatus("Please enter your name.", "error");
+        showFormStatus(formStatus, "Please enter your name.", "error");
         return;
       }
 
@@ -174,12 +174,12 @@
         if (emailInput) {
           emailInput.setAttribute("aria-invalid", "true");
         }
-        showFormStatus("Please enter a valid email address.", "error");
+        showFormStatus(formStatus, "Please enter a valid email address.", "error");
         return;
       }
 
       if (!message) {
-        showFormStatus("Please enter your message.", "error");
+        showFormStatus(formStatus, "Please enter your message.", "error");
         return;
       }
 
@@ -187,8 +187,93 @@
         emailInput.setAttribute("aria-invalid", "false");
       }
 
-      showFormStatus("Thank you! Your message has been sent successfully.", "success");
+      showFormStatus(formStatus, "Thank you! Your message has been sent successfully.", "success");
       contactForm.reset();
+    });
+  }
+
+  const courseForm = document.getElementById("course-form");
+  const courseStatus = document.getElementById("course-form-status");
+  const courseSelect = document.getElementById("course-select");
+  const courseSection = document.getElementById("course-registration");
+  const applyButtons = document.querySelectorAll(".apply-btn");
+
+  if (applyButtons.length) {
+    applyButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const courseValue = button.dataset.course;
+        if (courseSelect && courseValue) {
+          courseSelect.value = courseValue;
+        }
+        if (courseSection) {
+          courseSection.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth" });
+        }
+        if (courseSelect) {
+          courseSelect.focus();
+        }
+      });
+    });
+  }
+
+  if (courseForm) {
+    courseForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const nameInput = document.getElementById("course-name");
+      const emailInput = document.getElementById("course-email");
+      const phoneInput = document.getElementById("course-phone");
+      const startSelect = document.getElementById("course-start");
+      const modeInput = courseForm.querySelector('input[name="study-mode"]:checked');
+      const name = nameInput ? nameInput.value.trim() : "";
+      const email = emailInput ? emailInput.value.trim() : "";
+      const phone = phoneInput ? phoneInput.value.trim() : "";
+      const selectedCourse = courseSelect ? courseSelect.value : "";
+      const selectedStart = startSelect ? startSelect.value : "";
+      const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      const isValidPhone = /^[+\d][\d\s().-]{7,}$/.test(phone);
+
+      if (emailInput) {
+        emailInput.setAttribute("aria-invalid", String(!isValidEmail && Boolean(email)));
+      }
+
+      if (!name) {
+        showFormStatus(courseStatus, "Please enter your full name.", "error");
+        return;
+      }
+
+      if (!isValidEmail) {
+        showFormStatus(courseStatus, "Please enter a valid email address.", "error");
+        return;
+      }
+
+      if (!phone || !isValidPhone) {
+        showFormStatus(courseStatus, "Please enter a valid phone number.", "error");
+        return;
+      }
+
+      if (!selectedCourse) {
+        showFormStatus(courseStatus, "Please select a program.", "error");
+        return;
+      }
+
+      if (!selectedStart) {
+        showFormStatus(courseStatus, "Please choose a start term.", "error");
+        return;
+      }
+
+      if (!modeInput) {
+        showFormStatus(courseStatus, "Please select a study mode.", "error");
+        return;
+      }
+
+      showFormStatus(courseStatus, "Application received! Our admissions team will contact you shortly.", "success");
+      courseForm.reset();
+      if (courseSelect) {
+        courseSelect.selectedIndex = 0;
+      }
+      if (startSelect) {
+        startSelect.selectedIndex = 0;
+      }
     });
   }
 })();
