@@ -33,9 +33,19 @@
   </header>
 
   <main class="container section-space">
-    <section>
-      <h1>Programs</h1>
-      <p>Explore future-ready programs designed for academic excellence and career impact.</p>
+    <section class="page-hero">
+      <div class="page-hero-content">
+        <h1>Programs</h1>
+        <p>Explore future-ready programs designed for academic excellence, mentorship, and career impact.</p>
+        <ul class="info-list">
+          <li><i class="fa-solid fa-circle-check"></i> Flexible start dates every quarter</li>
+          <li><i class="fa-solid fa-circle-check"></i> Industry-recognized credentials</li>
+          <li><i class="fa-solid fa-circle-check"></i> Dedicated placement coaching</li>
+        </ul>
+      </div>
+      <div class="page-hero-image">
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=80" alt="Instructor mentoring students in a technology lab" width="900" height="600" loading="eager" decoding="async" />
+      </div>
     </section>
 
     <section class="filter-bar section-space-sm">
@@ -48,24 +58,126 @@
     <section class="section-space-sm">
       <div class="grid grid-3">
         <article class="card course-card">
-          <i class="fa-solid fa-atom"></i>
-          <h2>Science</h2>
-          <p>Advanced laboratory science with research-led instruction.</p>
-          <button class="btn-primary" type="button">Apply</button>
+          <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80" alt="Student working on robotics components" width="800" height="533" loading="lazy" decoding="async" />
+          <div class="course-card-body">
+            <div class="course-card-heading">
+              <h2>Applied Science</h2>
+              <span class="badge">12 months</span>
+            </div>
+            <p>Advanced laboratory science with research-led instruction and guided faculty projects.</p>
+            <ul class="feature-list">
+              <li><i class="fa-solid fa-circle-check"></i> Biomedical and environmental labs</li>
+              <li><i class="fa-solid fa-circle-check"></i> Capstone research publication</li>
+              <li><i class="fa-solid fa-circle-check"></i> Dedicated lab mentor</li>
+            </ul>
+            <button class="btn-primary apply-btn" type="button" data-course="Applied Science">Apply</button>
+          </div>
         </article>
         <article class="card course-card">
-          <i class="fa-solid fa-microchip"></i>
-          <h2>Tech</h2>
-          <p>Software, AI, and systems design for modern digital careers.</p>
-          <button class="btn-primary" type="button">Apply</button>
+          <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=80" alt="Team reviewing a data visualization dashboard" width="800" height="533" loading="lazy" decoding="async" />
+          <div class="course-card-body">
+            <div class="course-card-heading">
+              <h2>AI &amp; Software Engineering</h2>
+              <span class="badge">10 months</span>
+            </div>
+            <p>Software, AI, and systems design for modern digital careers and product teams.</p>
+            <ul class="feature-list">
+              <li><i class="fa-solid fa-circle-check"></i> Full-stack project portfolio</li>
+              <li><i class="fa-solid fa-circle-check"></i> Cloud deployment labs</li>
+              <li><i class="fa-solid fa-circle-check"></i> Weekly engineering sprints</li>
+            </ul>
+            <button class="btn-primary apply-btn" type="button" data-course="AI &amp; Software Engineering">Apply</button>
+          </div>
         </article>
         <article class="card course-card">
-          <i class="fa-solid fa-palette"></i>
-          <h2>Arts</h2>
-          <p>Creative practice and critical thinking across visual disciplines.</p>
-          <button class="btn-primary" type="button">Apply</button>
+          <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=800&q=80" alt="Creative student sketching design concepts" width="800" height="533" loading="lazy" decoding="async" />
+          <div class="course-card-body">
+            <div class="course-card-heading">
+              <h2>Creative Arts &amp; Media</h2>
+              <span class="badge">9 months</span>
+            </div>
+            <p>Creative practice and critical thinking across visual disciplines and digital media.</p>
+            <ul class="feature-list">
+              <li><i class="fa-solid fa-circle-check"></i> Studio production labs</li>
+              <li><i class="fa-solid fa-circle-check"></i> Brand storytelling workshops</li>
+              <li><i class="fa-solid fa-circle-check"></i> Portfolio review panels</li>
+            </ul>
+            <button class="btn-primary apply-btn" type="button" data-course="Creative Arts &amp; Media">Apply</button>
+          </div>
         </article>
       </div>
+    </section>
+
+    <section class="section-space">
+      <div class="section-header">
+        <h2>Program highlights</h2>
+        <p>Every track includes hands-on labs, mentorship, and career readiness support.</p>
+      </div>
+      <div class="grid grid-3">
+        <article class="card">
+          <i class="fa-solid fa-briefcase"></i>
+          <h3>Career studios</h3>
+          <p>Resume clinics, interview prep, and employer networking sessions.</p>
+        </article>
+        <article class="card">
+          <i class="fa-solid fa-sitemap"></i>
+          <h3>Personalized pathways</h3>
+          <p>Choose electives tailored to research, entrepreneurship, or industry placements.</p>
+        </article>
+        <article class="card">
+          <i class="fa-solid fa-award"></i>
+          <h3>Certification ready</h3>
+          <p>Aligned with professional certifications and national accreditation standards.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="course-registration" class="section-space">
+      <div class="section-header">
+        <h2>Apply for a program</h2>
+        <p>Complete the form below to start your application. Our advisors will follow up within one business day.</p>
+      </div>
+      <form id="course-form" class="course-form" novalidate>
+        <label for="course-name">Full name</label>
+        <input id="course-name" name="course-name" type="text" autocomplete="name" required />
+
+        <label for="course-email">Email</label>
+        <input id="course-email" name="course-email" type="email" autocomplete="email" required />
+
+        <label for="course-phone">Phone</label>
+        <input id="course-phone" name="course-phone" type="tel" autocomplete="tel" required />
+
+        <label for="course-select">Select program</label>
+        <select id="course-select" name="course-select" required>
+          <option value="" disabled selected>Choose a program</option>
+          <option value="Applied Science">Applied Science</option>
+          <option value="AI &amp; Software Engineering">AI &amp; Software Engineering</option>
+          <option value="Creative Arts &amp; Media">Creative Arts &amp; Media</option>
+        </select>
+
+        <label for="course-start">Preferred start term</label>
+        <select id="course-start" name="course-start" required>
+          <option value="" disabled selected>Select a start term</option>
+          <option value="Fall 2026">Fall 2026</option>
+          <option value="Winter 2027">Winter 2027</option>
+          <option value="Spring 2027">Spring 2027</option>
+        </select>
+
+        <fieldset class="form-fieldset">
+          <legend>Study mode</legend>
+          <div class="radio-group">
+            <label><input type="radio" name="study-mode" value="On campus" required /> On-campus</label>
+            <label><input type="radio" name="study-mode" value="Hybrid" required /> Hybrid</label>
+            <label><input type="radio" name="study-mode" value="Online" required /> Online</label>
+          </div>
+        </fieldset>
+
+        <label for="course-notes">Notes (optional)</label>
+        <textarea id="course-notes" name="course-notes" rows="4" placeholder="Share your background or career goals."></textarea>
+
+        <p id="course-form-status" class="form-status" role="status" aria-live="polite" hidden></p>
+        <button class="btn-primary" type="submit">Submit application</button>
+      </form>
     </section>
   </main>
 
