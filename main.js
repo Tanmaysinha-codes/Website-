@@ -5,6 +5,18 @@
   const menuToggle = document.getElementById("menu-toggle");
   const siteNav = document.getElementById("site-nav");
   const rootElement = document.documentElement;
+  const getStoredTheme = () => {
+    try {
+      return localStorage.getItem(THEME_KEY);
+    } catch {
+      return null;
+    }
+  };
+  const setStoredTheme = (theme) => {
+    try {
+      localStorage.setItem(THEME_KEY, theme);
+    } catch {}
+  };
   const sunIcon = `
     <svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle>
@@ -41,7 +53,7 @@
     }
   };
 
-  const savedTheme = localStorage.getItem(THEME_KEY);
+  const savedTheme = getStoredTheme();
   const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
   const initialTheme =
     savedTheme === "dark" || savedTheme === "light"
@@ -69,7 +81,7 @@
     themeToggle.addEventListener("click", () => {
       const nextTheme = rootElement.classList.contains("dark-mode") ? "light" : "dark";
       applyTheme(nextTheme);
-      localStorage.setItem(THEME_KEY, nextTheme);
+      setStoredTheme(nextTheme);
     });
   }
 
